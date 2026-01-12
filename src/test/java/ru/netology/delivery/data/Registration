@@ -1,0 +1,17 @@
+package ru.netology.delivery.data;
+
+import com.github.javafaker.Faker;
+import lombok.Value;
+
+public class Registration {
+    private Registration() {}  // Утилитный класс
+
+    public static User generateUser(String locale) {
+        Faker faker = new Faker();
+        return new User(
+            faker.address().city(),      // Город
+            faker.name().fullName(),     // Имя Фамилия
+            faker.phoneNumber().phoneNumber()  // Телефон
+        );
+    }
+}
